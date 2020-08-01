@@ -1,0 +1,295 @@
+* {
+    margin: 5px;
+    padding: 5px;
+    font-family: sans-serif;
+    background-color: black;
+}
+
+.mine-ore-header {
+    text-align: center;
+    font-size: 19px;
+}
+
+.mine-1 {
+    color: chocolate;
+    border: 1px solid white;
+    height: 150px;
+    width: 150px;
+    float: left;
+    position: relative;
+}
+
+.mine-2 {
+    color: grey;
+    border: 1px solid white;
+    height: 150px;
+    width: 150px;
+    float: left;
+    position: relative;
+}
+
+.mine-3 {
+    color: rgb(211, 211, 211);
+    border: 1px solid white;
+    height: 150px;
+    width: 150px;
+    float: left;
+    position: relative;
+
+}
+
+.mine-4 {
+    color: gold;
+    border: 1px solid white;
+    height: 150px;
+    width: 150px;
+    float: left;
+    position: relative;
+}
+
+.mine-5 {
+    color: blue;
+    border: 1px solid white;
+    height: 150px;
+    width: 150px;
+    float: left;
+    position: relative;
+}
+
+.mine-btn {
+    text-align: center;
+    width: 160px;
+    height: 25px;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid white;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.smith-bar-header {
+    text-align: center;
+    font-size: 19px;
+}
+
+.smith-1 {
+    color: chocolate;
+    border: 1px solid white;
+    height: 150px;
+    width: 150px;
+    float: left;
+    position: relative;
+}
+
+.smith-2 {
+    color: grey;
+    border: 1px solid white;
+    height: 150px;
+    width: 150px;
+    float: left;
+    position: relative;
+}
+
+.smith-3 {
+    color: silver;
+    border: 1px solid white;
+    height: 150px;
+    width: 150px;
+    float: left;
+    position: relative;
+
+}
+
+.smith-4 {
+    color: gold;
+    border: 1px solid white;
+    height: 150px;
+    width: 150px;
+    float: left;
+    position: relative;
+}
+
+.smith-5 {
+    color: blue;
+    border: 1px solid white;
+    height: 150px;
+    width: 150px;
+    float: left;
+    position: relative;
+}
+
+.smith-btn {
+    text-align: center;
+    width: 160px;
+    height: 25px;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid white;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#inventory-wrapper {
+    float: left;
+    margin: 5px;
+    padding: 5px;
+}
+
+#unlock-wrapper {
+    float: left;
+    margin: 5px;
+    padding: 5px;
+}
+
+#upgrade-wrapper {
+    float: left;
+    margin: 5px;
+    padding: 5px;
+}
+
+#time-travel-wrapper {
+    float: left;
+    margin: 5px;
+    padding: 5px;
+}
+
+.time-travel {
+    border: 1px solid white;
+    width: 200px;
+    margin: 0px;
+    color: white;
+    text-align: center;
+}
+
+#time-travel-header {
+    border: 1px solid white;
+    text-align: center;
+}
+
+.inventory {
+    border: 1px solid white;
+    width: 200px;
+    margin: 0px;
+    color: white;
+    text-align: center;
+}
+
+.upgrade {
+    width: 200px;
+    border: 1px solid white;
+    float: left;
+    color: white;
+    text-align: center;
+}
+
+.unlock {
+    width: 200px;
+    border: 1px solid white;
+    float: left;
+    color: white;
+    text-align: center;
+}
+
+.sell {
+    color: white;
+    border: 1px solid white;
+}
+
+#inventory-header {
+    border: 1px solid white;
+    text-align: center;
+}
+
+#ore-header {
+    border: 1px solid white;
+    text-align: center;
+}
+
+#upgrade-header {
+    border: 1px solid white;
+    text-align: center;
+}
+
+#unlock-header {
+    border: 1px solid white;
+    text-align: center;
+}
+
+.ore-per-second {
+    position: absolute;
+    bottom: 20%;
+    text-align: center;
+    color: white;
+}
+
+.color-btn {
+    color: white;
+    margin: 3px;
+    padding: 3px;
+    margin: 0 auto;
+}
+
+#total-gold {
+    color: gold;
+    border: 1px solid white;
+}
+
+#toggle-btn {
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+#copper-progress-wrapper {
+    width: 100%;
+    background-color: black;
+    width: 160px;
+    position: absolute;
+    bottom: 15%;
+    padding: 0px;
+    margin: 0px;
+    left: 0;
+}
+
+  
+#copper-progress-ore {
+    width: 0%;
+    height: 20px;
+    background-color: chocolate;
+    width: 160px;
+    position: absolute; 
+    bottom: 15%;
+    padding: 0px;
+    margin: 0px;
+    left: 0;
+}
+
+#copper-bar-progress-wrapper {
+    width: 100%;
+    background-color: black;
+    width: 160px;
+    position: absolute;
+    bottom: 15%;
+    padding: 0px;
+    margin: 0px;
+    left: 0;
+}
+
+  
+#copper-progress-bar {
+    width: 0%;
+    height: 20px;
+    background-color: chocolate;
+    width: 160px;
+    position: absolute; 
+    bottom: 15%;
+    padding: 0px;
+    margin: 0px;
+    left: 0;
+}
