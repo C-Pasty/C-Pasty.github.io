@@ -93,7 +93,7 @@
 }
 
 .smith-3 {
-    color: silver;
+    color: rgb(211, 211, 211);
     border: 1px solid white;
     height: 150px;
     width: 150px;
@@ -238,6 +238,11 @@
     border: 1px solid white;
 }
 
+#ore-quantity-header {
+    color: white;
+    border: 1px solid white;
+}
+
 #toggle-btn {
     position: relative;
     margin: 0px;
@@ -269,8 +274,20 @@
     margin: 0px;
     left: 0;
 }
+  
+#copper-progress-bar {
+    width: 0%;
+    height: 20px;
+    background-color: chocolate;
+    width: 160px;
+    position: absolute; 
+    bottom: 15%;
+    padding: 0px;
+    margin: 0px;
+    left: 0;
+}
 
-#copper-bar-progress-wrapper {
+#iron-progress-wrapper {
     width: 100%;
     background-color: black;
     width: 160px;
@@ -282,10 +299,130 @@
 }
 
   
-#copper-progress-bar {
+#iron-progress-ore {
     width: 0%;
     height: 20px;
-    background-color: chocolate;
+    background-color: grey;
+    width: 160px;
+    position: absolute; 
+    bottom: 15%;
+    padding: 0px;
+    margin: 0px;
+    left: 0;
+}
+
+#iron-progress-bar {
+    width: 0%;
+    height: 20px;
+    background-color: grey;
+    width: 160px;
+    position: absolute; 
+    bottom: 15%;
+    padding: 0px;
+    margin: 0px;
+    left: 0;
+}
+
+#silver-progress-wrapper {
+    width: 100%;
+    background-color: black;
+    width: 160px;
+    position: absolute;
+    bottom: 15%;
+    padding: 0px;
+    margin: 0px;
+    left: 0;
+}
+
+  
+#silver-progress-ore {
+    width: 0%;
+    height: 20px;
+    background-color: rgb(211, 211, 211);
+    width: 160px;
+    position: absolute; 
+    bottom: 15%;
+    padding: 0px;
+    margin: 0px;
+    left: 0;
+}
+
+#silver-progress-bar {
+    width: 0%;
+    height: 20px;
+    background-color:rgb(211, 211, 211);
+    width: 160px;
+    position: absolute; 
+    bottom: 15%;
+    padding: 0px;
+    margin: 0px;
+    left: 0;
+}
+
+#gold-progress-wrapper {
+    width: 100%;
+    background-color: black;
+    width: 160px;
+    position: absolute;
+    bottom: 15%;
+    padding: 0px;
+    margin: 0px;
+    left: 0;
+}
+
+  
+#gold-progress-ore {
+    width: 0%;
+    height: 20px;
+    background-color: gold;
+    width: 160px;
+    position: absolute; 
+    bottom: 15%;
+    padding: 0px;
+    margin: 0px;
+    left: 0;
+}
+
+#gold-progress-bar {
+    width: 0%;
+    height: 20px;
+    background-color:gold;
+    width: 160px;
+    position: absolute; 
+    bottom: 15%;
+    padding: 0px;
+    margin: 0px;
+    left: 0;
+}
+
+#mithril-progress-wrapper {
+    width: 100%;
+    background-color: black;
+    width: 160px;
+    position: absolute;
+    bottom: 15%;
+    padding: 0px;
+    margin: 0px;
+    left: 0;
+}
+
+  
+#mithril-progress-ore {
+    width: 0%;
+    height: 20px;
+    background-color: blue;
+    width: 160px;
+    position: absolute; 
+    bottom: 15%;
+    padding: 0px;
+    margin: 0px;
+    left: 0;
+}
+
+#mithril-progress-bar {
+    width: 0%;
+    height: 20px;
+    background-color:blue;
     width: 160px;
     position: absolute; 
     bottom: 15%;

@@ -54,7 +54,7 @@ var mithrilBarHeader = document.getElementById("mithril-bar-header");
 // Gold Variable
 
 var totalGold = document.getElementById("total-gold");
-var gold = 50000000000000000;
+var gold = 500000000000;
 
 // Unlock Variable
 
@@ -74,9 +74,9 @@ var miningSpeedUpgradeBtn = document.getElementById("mining-speed-upgrade");
 var smithingSpeedUpgradeBtn = document.getElementById("smithing-speed-upgrade");
 var upgradeOreQuantityBtn = document.getElementById("ore-quantity");
 
-// Ore and Bars per second display
+// Ore Quantity
 
-var copperOrePerSecond = document.getElementById("copper-ore-per-second");
+var oreQuantityHeader = document.getElementById("ore-quantity-header");
 
 // Wrapper Variables
 
@@ -93,9 +93,25 @@ var toggleUnlockBtn = document.getElementById("toggle-unlocks");
 
 var copperOreProgress = document.getElementById("copper-progress-ore");
 var copperBarProgress = document.getElementById("copper-progress-bar");
+var ironOreProgress = document.getElementById("iron-progress-ore");
+var ironBarProgress = document.getElementById("iron-progress-bar");
+var silverOreProgress = document.getElementById("silver-progress-ore");
+var silverBarProgress = document.getElementById("silver-progress-bar");
+var goldOreProgress = document.getElementById("gold-progress-ore");
+var goldBarProgress = document.getElementById("gold-progress-bar");
+var mithrilOreProgress = document.getElementById("mithril-progress-ore");
+var mithrilBarProgress = document.getElementById("mithril-progress-bar");
 
 var copperOreProgressCounter = 0;
 var copperBarProgressCounter = 0;
+var ironOreProgressCounter = 0;
+var ironBarProgressCounter = 0;
+var silverOreProgressCounter = 0;
+var silverBarProgressCounter = 0;
+var goldOreProgressCounter = 0;
+var goldBarProgressCounter = 0;
+var mithrilOreProgressCounter = 0;
+var mithrilBarProgressCounter = 0;
 
 // Ore variables
 
@@ -124,6 +140,9 @@ var speed = {
     smithing: 5000
 };
 
+var miningSpeedLevel = 1;
+var smithingSpeedLevel = 1;
+
 // Ore prices
 
 var price = {
@@ -150,7 +169,7 @@ var upgrade = {
 
 // Upgrade costs
 
-var miningSpeedUpgradeCost = 100;
+var miningSpeedUpgradeCost = 500;
 var smithingSpeedUpgradeCost = 500;
 var oreQuantityUpgradeCost = 50000;
 
@@ -172,37 +191,41 @@ function mineCopperOre() {
 };
 
 function mineIronOre() {
+    ironOreProgressBar();
     mineIronOreBtn.disabled = true;
     mineIronOreBtn.innerHTML = "Mining";
     mineIronOreBtn.style.backgroundColor = "grey";
-    setTimeout(() => {ores.iron += oreQuantity, mineIronOre();}, speed.mining);
+    setTimeout(() => {ores.iron += oreQuantity, mineIronOre(), ironOreProgressBar();}, speed.mining);
     sellIronOre.innerHTML = "Sell all for " + ores.iron * price.ironOre;
     ironOreInventory.innerHTML = "Iron Ore: " + ores.iron;
 };
 
 function mineSilverOre() {
+    silverOreProgressBar();
     mineSilverOreBtn.disabled = true;
     mineSilverOreBtn.innerHTML = "Mining";
     mineSilverOreBtn.style.backgroundColor = "grey";
-    setTimeout(() => {ores.silver += oreQuantity, mineSilverOre();}, speed.mining);
+    setTimeout(() => {ores.silver += oreQuantity, mineSilverOre(), silverOreProgressBar();}, speed.mining);
     sellSilverOre.innerHTML = "Sell all for " + ores.silver * price.silverOre;
     silverOreInventory.innerHTML = "Silver Ore: " + ores.silver;
 };
 
 function mineGoldOre() {
+    goldOreProgressBar();
     mineGoldOreBtn.disabled = true;
     mineGoldOreBtn.innerHTML = "Mining";
     mineGoldOreBtn.style.backgroundColor = "grey";
-    setTimeout(() => {ores.gold += oreQuantity, mineGoldOre();}, speed.mining);
+    setTimeout(() => {ores.gold += oreQuantity, mineGoldOre(), goldOreProgressBar();}, speed.mining);
     sellGoldOre.innerHTML = "Sell all for " + ores.gold * price.goldOre;
     goldOreInventory.innerHTML = "Gold Ore: " + ores.gold;
 };
 
 function mineMithrilOre() {
+    mithrilOreProgressBar();
     mineMithrilOreBtn.disabled = true;
     mineMithrilOreBtn.innerHTML = "Mining";
     mineMithrilOreBtn.style.backgroundColor = "grey";
-    setTimeout(() => {ores.mithril += oreQuantity, mineMithrilOre();}, speed.mining);
+    setTimeout(() => {ores.mithril += oreQuantity, mineMithrilOre(), mithrilOreProgressBar();}, speed.mining);
     sellMithrilOre.innerHTML = "Sell all for " + ores.mithril * price.mithrilOre;
     mithrilOreInventory.innerHTML = "Mithril Ore: " + ores.mithril;
 };
@@ -230,13 +253,14 @@ function smithCopperBar() {
 
 function smithIronBar() {
     if (ores.iron >= 5) {
+        ironBarProgressBar();
         smithIronBarBtn.disabled = true;
         smithIronBarBtn.innerHTML = "Smithing";
         smithIronBarBtn.style.backgroundColor = "grey"; 
         ores.iron -= 5;
         ironOreInventory.innerHTML = "Iron Ore: " + ores.iron;
         setTimeout(() => {bars.iron += 1, ironBarsInventory.innerHTML = "Iron Bars: " + bars.iron;}, speed.smithing);
-        setTimeout(() => {smithIronBar();}, speed.smithing);
+        setTimeout(() => {ironBarProgressBar(), smithIronBar();}, speed.smithing);
         sellIronBar.innerHTML = "Sell all for " + bars.iron * price.ironBar;
     } else if (ores.iron < 5) {
         smithIronBarBtn.disabled = false;
@@ -248,13 +272,14 @@ function smithIronBar() {
 
 function smithSilverBar() {
     if (ores.silver >= 5) {
+        silverBarProgressBar();
         smithSilverBarBtn.disabled = true;
         smithSilverBarBtn.innerHTML = "Smithing";
         smithSilverBarBtn.style.backgroundColor = "grey"; 
         ores.silver -= 5;
         silverOreInventory.innerHTML = "Silver Ore: " + ores.silver;
         setTimeout(() => {bars.silver += 1, silverBarsInventory.innerHTML = "Silver Bars: " + bars.silver;}, speed.smithing);
-        setTimeout(() => {smithSilverBar();}, speed.smithing);
+        setTimeout(() => {silverBarProgressBar(), smithSilverBar();}, speed.smithing);
         sellSilverBar.innerHTML = "Sell all for " + bars.silver * price.silverBar;
     } else if (ores.silver < 5) {
         smithSilverBarBtn.disabled = false;
@@ -266,13 +291,14 @@ function smithSilverBar() {
 
 function smithGoldBar() {
     if (ores.gold >= 5) {
+        goldBarProgressBar();
         smithGoldBarBtn.disabled = true;
         smithGoldBarBtn.innerHTML = "Smithing";
         smithGoldBarBtn.style.backgroundColor = "grey";
         ores.gold -= 5;
         goldOreInventory.innerHTML = "Gold Ore: " + ores.gold;
         setTimeout(() => {bars.gold += 1, goldBarsInventory.innerHTML = "Gold Bars: " + bars.gold;}, speed.smithing);
-        setTimeout(() => {smithGoldBar();}, speed.smithing);
+        setTimeout(() => {goldBarProgressBar(), smithGoldBar();}, speed.smithing);
         sellGoldBar.innerHTML = "Sell all for " + bars.gold * price.goldBar;
     } else if (ores.gold < 5) {
         smithGoldBarBtn.disabled = false;
@@ -284,13 +310,14 @@ function smithGoldBar() {
 
 function smithMithrilBar() {
     if (ores.mithril >= 5) {
+        mithrilBarProgressBar();
         smithMithrilBarBtn.disabled = true;
         smithMithrilBarBtn.innerHTML = "Smithing";
         smithMithrilBarBtn.style.backgroundColor = "grey"; 
         ores.mithril -= 5;
         mithrilOreInventory.innerHTML = "Mithril Ore: " + ores.mithril;
         setTimeout(() => {bars.mithril += 1, mithrilBarsInventory.innerHTML = "Mithril Bars: " + bars.mithril;}, speed.smithing);
-        setTimeout(() => {smithMithrilBar();}, speed.smithing);
+        setTimeout(() => {mithrilBarProgressBar(), smithMithrilBar();}, speed.smithing);
         sellMithrilBar.innerHTML = "Sell all for " + bars.mithril * price.mithrilBar;
     } else if (ores.mithril < 5) {
         smithMithrilBarBtn.disabled = false;
@@ -479,17 +506,70 @@ function sellAllMithrilBars() {
 // Upgrade mining speed
 
 function upgradeMiningSpeed() {
-    if (gold >= miningSpeedUpgradeCost && speed.mining > 100) {
+    if (gold >= miningSpeedUpgradeCost && miningSpeedLevel == 1) {
+        miningSpeedLevel++
         gold -= miningSpeedUpgradeCost;
         totalGold.innerHTML = "Gold: " + gold;
-        miningSpeedUpgradeCost *= 2;
+        miningSpeedUpgradeCost = 2500;
         miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-        speed.mining -= 100;
-        if (speed.mining <= 100) {
-            miningSpeedUpgradeBtn.innerHTML = "Mining Speed Maxed";
-            miningSpeedUpgradeBtn.style.backgroundColor = "grey";
-            miningSpeedUpgradeBtn.disabled = true;
-        }
+        speed.mining -= 200;
+    } else if (gold >= miningSpeedUpgradeCost && miningSpeedLevel == 2) {
+        miningSpeedLevel++
+        gold -= miningSpeedUpgradeCost;
+        totalGold.innerHTML = "Gold: " + gold;
+        miningSpeedUpgradeCost = 5000;
+        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
+        speed.mining -= 200;
+    } else if (gold >= miningSpeedUpgradeCost && miningSpeedLevel == 3) {
+        miningSpeedLevel++
+        gold -= miningSpeedUpgradeCost;
+        totalGold.innerHTML = "Gold: " + gold;
+        miningSpeedUpgradeCost = 10000;
+        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
+        speed.mining -= 200;
+    } else if (gold >= miningSpeedUpgradeCost && miningSpeedLevel == 4) {
+        miningSpeedLevel++
+        gold -= miningSpeedUpgradeCost;
+        totalGold.innerHTML = "Gold: " + gold;
+        miningSpeedUpgradeCost = 20000;
+        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
+        speed.mining -= 200;
+    } else if (gold >= miningSpeedUpgradeCost && miningSpeedLevel == 5) {
+        miningSpeedLevel++
+        gold -= miningSpeedUpgradeCost;
+        totalGold.innerHTML = "Gold: " + gold;
+        miningSpeedUpgradeCost = 50000;
+        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
+        speed.mining -= 200;
+    } else if (gold >= miningSpeedUpgradeCost && miningSpeedLevel == 6) {
+        miningSpeedLevel++
+        gold -= miningSpeedUpgradeCost;
+        totalGold.innerHTML = "Gold: " + gold;
+        miningSpeedUpgradeCost = 75000;
+        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
+        speed.mining -= 200;
+    } else if (gold >= miningSpeedUpgradeCost && miningSpeedLevel == 7) {
+        miningSpeedLevel++
+        gold -= miningSpeedUpgradeCost;
+        totalGold.innerHTML = "Gold: " + gold;
+        miningSpeedUpgradeCost = 100000;
+        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
+        speed.mining -= 200;
+    } else if (gold >= miningSpeedUpgradeCost && miningSpeedLevel == 8) {
+        miningSpeedLevel++
+        gold -= miningSpeedUpgradeCost;
+        totalGold.innerHTML = "Gold: " + gold;
+        miningSpeedUpgradeCost = 250000;
+        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
+        speed.mining -= 200;
+    } else if (gold >= miningSpeedUpgradeCost && miningSpeedLevel == 9) {
+        miningSpeedLevel++
+        gold -= miningSpeedUpgradeCost;
+        totalGold.innerHTML = "Gold: " + gold;
+        speed.mining -= 200;
+        miningSpeedUpgradeBtn.innerHTML = "Mining Speed Maxed";
+        miningSpeedUpgradeBtn.style.backgroundColor = "grey";
+        miningSpeedUpgradeBtn.disabled = true;
     }
 };
 
@@ -507,7 +587,7 @@ function upgradeSmithingSpeed() {
             smithingSpeedUpgradeBtn.style.backgroundColor = "grey";
             smithingSpeedUpgradeBtn.disabled = true;
         }
-    } 
+    }
 };
 
 // Upgrade amount of ore gained
@@ -519,6 +599,7 @@ function upgradeOreQuantity() {
         oreQuantityUpgradeCost += 50000;
         upgradeOreQuantityBtn.innerHTML = "Upgrade for " + oreQuantityUpgradeCost + " Gold";
         oreQuantity += 1;
+        oreQuantityHeader.innerHTML = "Ore Quantity: " + "+" + oreQuantity;
         if (oreQuantity >= 10) {
             upgradeOreQuantityBtn.innerHTML = "Ore Quantity Maxed";
             upgradeOreQuantityBtn.style.backgroundColor = "grey";
@@ -595,6 +676,142 @@ if (copperBarProgressCounter == 0) {
   }
 };
 
+function ironOreProgressBar() {
+    if (ironOreProgressCounter == 0) {
+      ironOreProgressCounter = 1;
+      var width = 1;
+      var id = setInterval(frame, speed.mining / 100);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          ironOreProgressCounter = 0;
+        } else {
+          width++;
+          ironOreProgress.style.width = width + "%";
+        }
+      }
+    }
+  };
+  
+  function ironBarProgressBar() {
+  if (ironBarProgressCounter == 0) {
+      ironBarProgressCounter = 1;
+      var width = 1;
+      var id = setInterval(frame, speed.smithing / 100);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          ironBarProgressCounter = 0;
+        } else {
+          width++;
+          ironBarProgress.style.width = width + "%";
+        }
+      }
+    }
+  };
+
+  function silverOreProgressBar() {
+    if (silverOreProgressCounter == 0) {
+      silverOreProgressCounter = 1;
+      var width = 1;
+      var id = setInterval(frame, speed.mining / 100);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          silverOreProgressCounter = 0;
+        } else {
+          width++;
+          silverOreProgress.style.width = width + "%";
+        }
+      }
+    }
+  };
+  
+  function silverBarProgressBar() {
+  if (silverBarProgressCounter == 0) {
+      silverBarProgressCounter = 1;
+      var width = 1;
+      var id = setInterval(frame, speed.smithing / 100);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          silverBarProgressCounter = 0;
+        } else {
+          width++;
+          silverBarProgress.style.width = width + "%";
+        }
+      }
+    }
+  };
+
+  function goldOreProgressBar() {
+    if (goldOreProgressCounter == 0) {
+      goldOreProgressCounter = 1;
+      var width = 1;
+      var id = setInterval(frame, speed.mining / 100);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          goldOreProgressCounter = 0;
+        } else {
+          width++;
+          goldOreProgress.style.width = width + "%";
+        }
+      }
+    }
+  };
+  
+  function goldBarProgressBar() {
+  if (goldBarProgressCounter == 0) {
+      goldBarProgressCounter = 1;
+      var width = 1;
+      var id = setInterval(frame, speed.smithing / 100);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          goldBarProgressCounter = 0;
+        } else {
+          width++;
+          goldBarProgress.style.width = width + "%";
+        }
+      }
+    }
+  };
+
+  function mithrilOreProgressBar() {
+    if (mithrilOreProgressCounter == 0) {
+      mithrilOreProgressCounter = 1;
+      var width = 1;
+      var id = setInterval(frame, speed.mining / 100);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          mithrilOreProgressCounter = 0;
+        } else {
+          width++;
+          mithrilOreProgress.style.width = width + "%";
+        }
+      }
+    }
+  };
+  
+  function mithrilBarProgressBar() {
+  if (mithrilBarProgressCounter == 0) {
+      mithrilBarProgressCounter = 1;
+      var width = 1;
+      var id = setInterval(frame, speed.smithing / 100);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          mithrilBarProgressCounter = 0;
+        } else {
+          width++;
+          mithrilBarProgress.style.width = width + "%";
+        }
+      }
+    }
+  };
+
 // Initilze function
 
 function init() {
@@ -615,6 +832,7 @@ function init() {
     unlockNextMithrilHeader.innerHTML = "Unlock Mithril for " + upgrade.mithril;
     miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
     upgradeOreQuantityBtn.innerHTML = "Upgrade for " + oreQuantityUpgradeCost + " Gold";
+    oreQuantityHeader.innerHTML = "Ore Quantity: " + "+" + oreQuantity;
     ironOreHeader.style.visibility = "hidden";
     ironBarHeader.style.visibility = "hidden";
     silverOreHeader.style.visibility = "hidden";
@@ -657,10 +875,12 @@ function init() {
     unlockNextMineralMithril.style.display = "none";
 };
 
+// Runs Initilize function on launch
 init();
 
 // Onclicks for buttons to run functions
 
+// Mine & Smith
 mineCopperOreBtn.onclick = mineCopperOre;
 mineIronOreBtn.onclick = mineIronOre;
 mineSilverOreBtn.onclick = mineSilverOre;
@@ -671,10 +891,14 @@ smithIronBarBtn.onclick = smithIronBar;
 smithSilverBarBtn.onclick = smithSilverBar;
 smithGoldBarBtn.onclick = smithGoldBar;
 smithMithrilBarBtn.onclick = smithMithrilBar;
+
+// Unlocks
 unlockNextMineralIron.onclick = unlockIron;
 unlockNextMineralSilver.onclick = unlockSilver;
 unlockNextMineralGold.onclick = unlockGold;
 unlockNextMineralMithril.onclick = unlockMithril;
+
+// Sell
 sellCopperOre.onclick = sellAllCopperOre;
 sellCopperBar.onclick = sellAllCopperBars;
 sellIronOre.onclick = sellAllIronOre;
@@ -685,9 +909,13 @@ sellGoldOre.onclick = sellAllGoldOre;
 sellGoldBar.onclick = sellAllGoldBars;
 sellMithrilOre.onclick = sellAllMithrilOre;
 sellMithrilBar.onclick = sellAllMithrilBars;
+
+// Upgrades
 miningSpeedUpgradeBtn.onclick = upgradeMiningSpeed;
 smithingSpeedUpgradeBtn.onclick = upgradeSmithingSpeed;
 upgradeOreQuantityBtn.onclick = upgradeOreQuantity;
+
+// Toggle
 toggleInventoryBtn.onclick = toggleInventory;
 toggleUpgradeBtn.onclick = toggleUpgrades;
 toggleUnlockBtn.onclick = toggleUnlocks;

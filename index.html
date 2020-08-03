@@ -14,7 +14,7 @@
             <button class="color-btn" id="toggle-upgrades">Toggle Upgrades</button>
             <button class="color-btn" id="toggle-unlocks">Toggle Unlocks</button>
             <button class="color-btn" id="save-game">Save Game</button>
-            <button class="color-btn" id="restore-game">Restore Game</button>
+            <button class="color-btn" id="load-game">Load Game</button>
             <button class="color-btn" id="clear-game">Clear Game</button>
         </div>
         <!-- Mining and Smithing -->
@@ -22,63 +22,79 @@
             <div class="mine-ore-header">Mine Copper Ore</div>
         <div id="copper-progress-wrapper">
             <div id="copper-progress-ore"></div>
-          </div>
+        </div>
             <button class="mine-btn" id="mine-copper-ore-btn">Mine Ore</button>
         </div>
 
         <div class="smith-1" id="copper-bar-header">
             <div class="smith-bar-header">Smith Copper Bar</div>
-            <div id="copper-bar-progress-wrapper">
-                <div id="copper-progress-bar"></div>
-              </div>
+        <div id="copper-bar-progress-wrapper">
+            <div id="copper-progress-bar"></div>
+        </div>
             <button class="smith-btn" id="smith-copper-bar-btn">Smith Bar</button>
         </div>
 
         <div class="mine-2" id="iron-ore-header">
             <div class="mine-ore-header"> Mine Iron Ore</div>
-            <div class="ore-per-second"></div>
+        <div id="iron-progress-wrapper">
+            <div id="iron-progress-ore"></div>
+        </div>
             <button class="mine-btn" id="mine-iron-ore-btn">Mine Ore</button>
         </div>
 
         <div class="smith-2" id="iron-bar-header">
             <div class="smith-bar-header">Smith Iron Bar</div>
-            <div class="ore-per-second"></div>
+        <div id="iron-bar-progress-wrapper">
+            <div id="iron-progress-bar"></div>
+        </div>
             <button class="smith-btn" id="smith-iron-bar-btn">Smith Bar</button>
         </div>
 
         <div class="mine-3" id="silver-ore-header">
             <div class="mine-ore-header">Mine Silver Ore</div>
-            <div class="ore-per-second"></div>
+        <div id="silver-progress-wrapper">
+            <div id="silver-progress-ore"></div>
+        </div>
             <button class="mine-btn" id="mine-silver-ore-btn">Mine Ore</button>
         </div>
 
         <div class="smith-3" id="silver-bar-header">
             <div class="smith-bar-header">Smith Silver Bar</div>
-            <div class="ore-per-second"></div>
+        <div id="silver-bar-progress-wrapper">
+            <div id="silver-progress-bar"></div>
+        </div>
             <button class="smith-btn" id="smith-silver-bar-btn">Smith Bar</button>
         </div>
 
         <div class="mine-4" id="gold-ore-header">
             <div class="mine-ore-header">Mine Gold Ore</div>
-            <div class="ore-per-second"></div>
+        <div id="gold-progress-wrapper">
+            <div id="gold-progress-ore"></div>
+        </div>
             <button class="mine-btn" id="mine-gold-ore-btn">Mine Ore</button>
         </div>
 
         <div class="smith-4" id="gold-bar-header">
             <div class="smith-bar-header">Smith Gold Bar</div>
-            <div class="ore-per-second"></div>
+        <div id="gold-bar-progress-wrapper">
+            <div id="gold-progress-bar"></div>
+        </div>
             <button class="smith-btn" id="smith-gold-bar-btn">Smith Bar</button>
         </div>
 
         <div class="mine-5" id="mithril-ore-header">
             <div class="mine-ore-header">Mine Mithril Ore</div>
-            <div class="ore-per-second"></div>
+        <div id="mithril-progress-wrapper">
+            <div id="mithril-progress-ore"></div>
+        </div>
             <button class="mine-btn" id="mine-mithril-ore-btn">Mine Ore</button>
         </div>
 
         <div class="smith-5" id="mithril-bar-header">
             <div class="smith-bar-header">Smith Mithril Bar</div>
-            <div class="ore-per-second"></div>
+        <div id="mithril-bar-progress-wrapper">
+            <div id="mithril-progress-bar"></div>
+        </div>
             <button class="smith-btn" id="smith-mithril-bar-btn">Smith Bar</button>
         </div>
 
@@ -89,6 +105,7 @@
         <div class="inventory" id="inventory-wrapper">
             <div id="inventory-header">Inventory</div>
             <div id="total-gold">Gold:</div>
+            <div id="ore-quantity-header"></div>
             <div id="total-copper-ore">Copper Ore: </div>            
             <button class="color-btn" id="copper-ore-sell">Sell All Copper Ore</button>
             <div id="total-copper-bars">Copper Bars: </div>
