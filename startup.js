@@ -12,11 +12,14 @@ function saveGame() {
     localStorage.setItem("mithrilBars", bars.mithril);
 
     localStorage.setItem("miningSpeed", speed.mining);
-    localStorage.setItem("miningSpeedLevel", miningSpeedLevel);
+    localStorage.setItem("miningSpeedUpgradeCost", miningSpeedUpgradeCost);
 
     localStorage.setItem("smithingSpeedUpgradeCost", smithingSpeedUpgradeCost);
     localStorage.setItem("smithingSpeed", speed.smithing);
-    localStorage.setItem("smithingSpeedLevel", smithingSpeedLevel);
+
+    localStorage.setItem("oreQuantity", oreQuantity);
+    localStorage.setItem("oreQuantityUpgradeCost", oreQuantityUpgradeCost);
+
     console.log("Game Saved");
 };
 
@@ -33,49 +36,27 @@ function loadGame() {
     sellCopperBar.innerHTML = "Sell all for " + bars.copper * price.copperBar;
 
     speed.mining = parseInt(localStorage.getItem("miningSpeed"));
-    miningSpeedLevel = parseInt(localStorage.getItem("miningSpeedLevel"));
-
-    if (miningSpeedLevel == 1) {
-        miningSpeedUpgradeCost = 500;
-        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-    } else if (miningSpeedLevel == 2) {
-        miningSpeedUpgradeCost = 2500;
-        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-    } else if (miningSpeedLevel == 3) {
-        miningSpeedUpgradeCost = 5000;
-        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-    } else if (miningSpeedLevel == 4) {
-        miningSpeedUpgradeCost = 10000;
-        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-    } else if (miningSpeedLevel == 5) {
-        miningSpeedUpgradeCost = 20000;
-        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-    } else if (miningSpeedLevel == 6) {
-        miningSpeedUpgradeCost = 50000;
-        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-    } else if (miningSpeedLevel == 7) {
-        miningSpeedUpgradeCost = 75000;
-        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-    } else if (miningSpeedLevel == 8) {
-        miningSpeedUpgradeCost = 100000;
-        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-    } else if (miningSpeedLevel == 9) {
-        miningSpeedUpgradeCost = 250000;
-        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-    } else if (miningSpeedLevel == 10) {
-        miningSpeedUpgradeBtn.innerHTML = "Mining Speed Maxed";
-        miningSpeedUpgradeBtn.style.backgroundColor = "grey";
-        miningSpeedUpgradeBtn.disabled = true;
-    }
+    miningSpeedUpgradeCost = parseInt(localStorage.getItem("miningSpeedUpgradeCost"));
+    miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
 
     speed.smithing = parseInt(localStorage.getItem("smithingSpeed"));
-    smithingSpeedLevel = parseInt(localStorage.getItem("smithingSpeedLevel"));
     smithingSpeedUpgradeCost = parseInt(localStorage.getItem("smithingSpeedUpgradeCost"));
-    smithingSpeedUpgradeBtn.innerHTML = "Upgrade for " + smithingSpeedUpgradeCost + " Gold";    
+    smithingSpeedUpgradeBtn.innerHTML = "Upgrade for " + smithingSpeedUpgradeCost + " Gold";
+    
+    oreQuantity = parseInt(localStorage.getItem("oreQuantity"));
+    oreQuantityUpgradeCost = parseInt(localStorage.getItem("oreQuantityUpgradeCost"));
+    oreQuantityHeader.innerHTML = "Ore Quantity: " + "+" + oreQuantity;
+    upgradeOreQuantityBtn.innerHTML = "Upgrade for " + oreQuantityUpgradeCost + " Gold";
 };
 
 function clearGame() {
-    localStorage.clear();
+    var clearGameConfirm = confirm("Are you sure you want to delete your save?");
+        if (clearGameConfirm == true) {
+        txt = "You have deleted your save file.";
+        localStorage.clear();
+        } else {
+        txt = "You did not delete your save file.";
+        }
 };
 
 var saveGameBtn = document.getElementById("save-game");

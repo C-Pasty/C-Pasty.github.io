@@ -140,9 +140,6 @@ var speed = {
     smithing: 5000
 };
 
-var miningSpeedLevel = 1;
-var smithingSpeedLevel = 1;
-
 // Ore prices
 
 var price = {
@@ -330,12 +327,12 @@ function smithMithrilBar() {
 // Unlock Function
 
 function unlockIron() {
-    if (ironOreHeader.style.visibility = "hidden" && gold >= upgrade.iron) {
+    if (ironOreHeader.style.display = "none" && gold >= upgrade.iron) {
         unlockNextMineralIron.disabled = true;
         gold -= upgrade.iron;
         totalGold.innerHTML = "Gold: " + gold;
-        ironOreHeader.style.visibility = "visible";
-        ironBarHeader.style.visibility = "visible";
+        ironOreHeader.style.display = "block";
+        ironBarHeader.style.display = "block";
         ironBarsInventory.style.display = "block";
         ironOreInventory.style.display = "block";
         sellIronOre.style.display = "block";
@@ -348,12 +345,12 @@ function unlockIron() {
 };
 
 function unlockSilver() {
-    if (silverOreHeader.style.visibility = "hidden" && gold >= upgrade.silver) {
+    if (silverOreHeader.style.display = "none" && gold >= upgrade.silver) {
         unlockNextMineralSilver.disabled = true;
         gold -= upgrade.silver;
         totalGold.innerHTML = "Gold: " + gold;
-        silverOreHeader.style.visibility = "visible";
-        silverBarHeader.style.visibility = "visible";
+        silverOreHeader.style.display = "block";
+        silverBarHeader.style.display = "block";
         silverBarsInventory.style.display = "block";
         silverOreInventory.style.display = "block";
         sellSilverOre.style.display = "block";
@@ -366,12 +363,12 @@ function unlockSilver() {
 };
 
 function unlockGold() {
-    if (silverOreHeader.style.visibility = "hidden" && gold >= upgrade.gold) {
+    if (silverOreHeader.style.display = "none" && gold >= upgrade.gold) {
         unlockNextMineralGold.disabled = true;
         gold -= upgrade.gold;
         totalGold.innerHTML = "Gold: " + gold;
-        goldOreHeader.style.visibility = "visible";
-        goldBarHeader.style.visibility = "visible";
+        goldOreHeader.style.display = "block";
+        goldBarHeader.style.display = "block";
         goldBarsInventory.style.display = "block";
         goldOreInventory.style.display = "block";
         sellGoldOre.style.display = "block";
@@ -384,17 +381,17 @@ function unlockGold() {
 };
 
 function unlockMithril() {
-    if (silverOreHeader.style.visibility = "hidden" && gold >= upgrade.mithril) {
+    if (silverOreHeader.style.display = "none" && gold >= upgrade.mithril) {
         unlockNextMineralMithril.disabled = true;
         gold -= upgrade.mithril;
         totalGold.innerHTML = "Gold: " + gold;
-        mithrilOreHeader.style.visibility = "visible";
-        mithrilBarHeader.style.visibility = "visible";
+        mithrilOreHeader.style.display = "block";
+        mithrilBarHeader.style.display = "block";
         mithrilBarsInventory.style.display = "block";
         mithrilOreInventory.style.display = "block";        
         sellMithrilOre.style.display = "block";
         sellMithrilBar.style.display = "block";
-        if (ironOreHeader.style.visibility === "visible" && silverOreHeader.style.visibility === "visible" && goldOreHeader.style.visibility === "visible") {
+        if (ironOreHeader.style.display === "block" && silverOreHeader.style.display === "block" && goldOreHeader.style.display === "block") {
             unlockWrapper.style.display = "none";
             toggleUnlockBtn.style.display = "none";
         }
@@ -506,71 +503,15 @@ function sellAllMithrilBars() {
 // Upgrade mining speed
 
 function upgradeMiningSpeed() {
-    if (gold >= miningSpeedUpgradeCost && miningSpeedLevel == 1) {
-        miningSpeedLevel++
-        gold -= miningSpeedUpgradeCost;
-        totalGold.innerHTML = "Gold: " + gold;
-        miningSpeedUpgradeCost = 2500;
-        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-        speed.mining -= 200;
-    } else if (gold >= miningSpeedUpgradeCost && miningSpeedLevel == 2) {
-        miningSpeedLevel++
-        gold -= miningSpeedUpgradeCost;
-        totalGold.innerHTML = "Gold: " + gold;
-        miningSpeedUpgradeCost = 5000;
-        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-        speed.mining -= 200;
-    } else if (gold >= miningSpeedUpgradeCost && miningSpeedLevel == 3) {
-        miningSpeedLevel++
-        gold -= miningSpeedUpgradeCost;
-        totalGold.innerHTML = "Gold: " + gold;
-        miningSpeedUpgradeCost = 10000;
-        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-        speed.mining -= 200;
-    } else if (gold >= miningSpeedUpgradeCost && miningSpeedLevel == 4) {
-        miningSpeedLevel++
-        gold -= miningSpeedUpgradeCost;
-        totalGold.innerHTML = "Gold: " + gold;
-        miningSpeedUpgradeCost = 20000;
-        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-        speed.mining -= 200;
-    } else if (gold >= miningSpeedUpgradeCost && miningSpeedLevel == 5) {
-        miningSpeedLevel++
-        gold -= miningSpeedUpgradeCost;
-        totalGold.innerHTML = "Gold: " + gold;
-        miningSpeedUpgradeCost = 50000;
-        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-        speed.mining -= 200;
-    } else if (gold >= miningSpeedUpgradeCost && miningSpeedLevel == 6) {
-        miningSpeedLevel++
-        gold -= miningSpeedUpgradeCost;
-        totalGold.innerHTML = "Gold: " + gold;
-        miningSpeedUpgradeCost = 75000;
-        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-        speed.mining -= 200;
-    } else if (gold >= miningSpeedUpgradeCost && miningSpeedLevel == 7) {
-        miningSpeedLevel++
-        gold -= miningSpeedUpgradeCost;
-        totalGold.innerHTML = "Gold: " + gold;
-        miningSpeedUpgradeCost = 100000;
-        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-        speed.mining -= 200;
-    } else if (gold >= miningSpeedUpgradeCost && miningSpeedLevel == 8) {
-        miningSpeedLevel++
-        gold -= miningSpeedUpgradeCost;
-        totalGold.innerHTML = "Gold: " + gold;
-        miningSpeedUpgradeCost = 250000;
-        miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-        speed.mining -= 200;
-    } else if (gold >= miningSpeedUpgradeCost && miningSpeedLevel == 9) {
-        miningSpeedLevel++
-        gold -= miningSpeedUpgradeCost;
-        totalGold.innerHTML = "Gold: " + gold;
-        speed.mining -= 200;
-        miningSpeedUpgradeBtn.innerHTML = "Mining Speed Maxed";
-        miningSpeedUpgradeBtn.style.backgroundColor = "grey";
-        miningSpeedUpgradeBtn.disabled = true;
-    }
+  if (gold >= miningSpeedUpgradeCost) {
+    gold -= miningSpeedUpgradeCost;
+    totalGold.innerHTML = "Gold: " + gold;
+    miningSpeedUpgradeCost *= 1.2;
+    miningSpeedUpgradeCost = Math.floor(miningSpeedUpgradeCost);
+    miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
+    speed.mining *= .95;
+    speed.mining = Math.floor(speed.mining);
+  }
 };
 
 // Upgrade smithing speed
@@ -581,11 +522,9 @@ function upgradeSmithingSpeed() {
     totalGold.innerHTML = "Gold: " + gold;
     smithingSpeedUpgradeCost *= 1.2;
     smithingSpeedUpgradeCost = Math.floor(smithingSpeedUpgradeCost);
-    console.log(smithingSpeedUpgradeCost)
     smithingSpeedUpgradeBtn.innerHTML = "Upgrade for " + smithingSpeedUpgradeCost + " Gold";
     speed.smithing *= .95;
     speed.smithing = Math.floor(speed.smithing);
-    console.log(speed.smithing);
     }
 };
 
@@ -833,14 +772,14 @@ function init() {
     smithingSpeedUpgradeBtn.innerHTML = "Upgrade for " + smithingSpeedUpgradeCost + " Gold";
     upgradeOreQuantityBtn.innerHTML = "Upgrade for " + oreQuantityUpgradeCost + " Gold";
     oreQuantityHeader.innerHTML = "Ore Quantity: " + "+" + oreQuantity;
-    ironOreHeader.style.visibility = "hidden";
-    ironBarHeader.style.visibility = "hidden";
-    silverOreHeader.style.visibility = "hidden";
-    silverBarHeader.style.visibility = "hidden";
-    goldOreHeader.style.visibility = "hidden";
-    goldBarHeader.style.visibility = "hidden";
-    mithrilOreHeader.style.visibility = "hidden";
-    mithrilBarHeader.style.visibility = "hidden";
+    ironOreHeader.style.display = "none";
+    ironBarHeader.style.display = "none";
+    silverOreHeader.style.display = "none";
+    silverBarHeader.style.display = "none";
+    goldOreHeader.style.display = "none";
+    goldBarHeader.style.display = "none";
+    mithrilOreHeader.style.display = "none";
+    mithrilBarHeader.style.display = "none";
     sellCopperOre.innerHTML = "Sell all for " + ores.copper * price.copperOre;
     sellCopperBar.innerHTML = "Sell all for " + bars.copper * price.copperBar;
     sellIronOre.innerHTML = "Sell all for " + ores.iron * price.ironOre;
