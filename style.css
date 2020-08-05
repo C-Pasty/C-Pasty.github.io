@@ -151,25 +151,6 @@
     padding: 5px;
 }
 
-#time-travel-wrapper {
-    float: left;
-    margin: 5px;
-    padding: 5px;
-}
-
-.time-travel {
-    border: 1px solid white;
-    width: 200px;
-    margin: 0px;
-    color: white;
-    text-align: center;
-}
-
-#time-travel-header {
-    border: 1px solid white;
-    text-align: center;
-}
-
 .inventory {
     border: 1px solid white;
     width: 200px;

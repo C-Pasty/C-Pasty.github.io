@@ -170,7 +170,7 @@ var upgrade = {
 // Upgrade costs
 
 var miningSpeedUpgradeCost = 500;
-var smithingSpeedUpgradeCost = 500;
+var smithingSpeedUpgradeCost = 5000;
 var oreQuantityUpgradeCost = 50000;
 
 // Upgrade ore quantity variable
@@ -576,17 +576,16 @@ function upgradeMiningSpeed() {
 // Upgrade smithing speed
 
 function upgradeSmithingSpeed() {
-    if (gold >= smithingSpeedUpgradeCost && speed.smithing > 250) {
-        gold -= smithingSpeedUpgradeCost;
-        totalGold.innerHTML = "Gold: " + gold;
-        smithingSpeedUpgradeCost *= 2;
-        smithingSpeedUpgradeBtn.innerHTML = "Upgrade for " + smithingSpeedUpgradeCost + " Gold";
-        speed.smithing -= 250;
-        if (speed.smithing <= 250) {
-            smithingSpeedUpgradeBtn.innerHTML = "Smithing Speed Maxed";
-            smithingSpeedUpgradeBtn.style.backgroundColor = "grey";
-            smithingSpeedUpgradeBtn.disabled = true;
-        }
+  if (gold >= smithingSpeedUpgradeCost) {
+    gold -= smithingSpeedUpgradeCost;
+    totalGold.innerHTML = "Gold: " + gold;
+    smithingSpeedUpgradeCost *= 1.2;
+    smithingSpeedUpgradeCost = Math.floor(smithingSpeedUpgradeCost);
+    console.log(smithingSpeedUpgradeCost)
+    smithingSpeedUpgradeBtn.innerHTML = "Upgrade for " + smithingSpeedUpgradeCost + " Gold";
+    speed.smithing *= .95;
+    speed.smithing = Math.floor(speed.smithing);
+    console.log(speed.smithing);
     }
 };
 
@@ -831,6 +830,7 @@ function init() {
     unlockNextGoldHeader.innerHTML = "Unlock Gold for " + upgrade.gold;
     unlockNextMithrilHeader.innerHTML = "Unlock Mithril for " + upgrade.mithril;
     miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
+    smithingSpeedUpgradeBtn.innerHTML = "Upgrade for " + smithingSpeedUpgradeCost + " Gold";
     upgradeOreQuantityBtn.innerHTML = "Upgrade for " + oreQuantityUpgradeCost + " Gold";
     oreQuantityHeader.innerHTML = "Ore Quantity: " + "+" + oreQuantity;
     ironOreHeader.style.visibility = "hidden";

@@ -13,6 +13,10 @@ function saveGame() {
 
     localStorage.setItem("miningSpeed", speed.mining);
     localStorage.setItem("miningSpeedLevel", miningSpeedLevel);
+
+    localStorage.setItem("smithingSpeedUpgradeCost", smithingSpeedUpgradeCost);
+    localStorage.setItem("smithingSpeed", speed.smithing);
+    localStorage.setItem("smithingSpeedLevel", smithingSpeedLevel);
     console.log("Game Saved");
 };
 
@@ -63,6 +67,11 @@ function loadGame() {
         miningSpeedUpgradeBtn.style.backgroundColor = "grey";
         miningSpeedUpgradeBtn.disabled = true;
     }
+
+    speed.smithing = parseInt(localStorage.getItem("smithingSpeed"));
+    smithingSpeedLevel = parseInt(localStorage.getItem("smithingSpeedLevel"));
+    smithingSpeedUpgradeCost = parseInt(localStorage.getItem("smithingSpeedUpgradeCost"));
+    smithingSpeedUpgradeBtn.innerHTML = "Upgrade for " + smithingSpeedUpgradeCost + " Gold";    
 };
 
 function clearGame() {
