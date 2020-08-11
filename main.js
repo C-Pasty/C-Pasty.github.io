@@ -51,11 +51,6 @@ var goldBarHeader = document.getElementById("gold-bar-header");
 var mithrilOreHeader = document.getElementById("mithril-ore-header");
 var mithrilBarHeader = document.getElementById("mithril-bar-header");
 
-// Gold Variable
-
-var totalGold = document.getElementById("total-gold");
-var gold = 500000000000;
-
 // Unlock Variable
 
 var unlockWrapper = document.getElementById("unlock-wrapper");
@@ -112,6 +107,11 @@ var goldOreProgressCounter = 0;
 var goldBarProgressCounter = 0;
 var mithrilOreProgressCounter = 0;
 var mithrilBarProgressCounter = 0;
+
+// Gold Variable
+
+var totalGold = document.getElementById("total-gold");
+var gold = 500000000000;
 
 // Ore variables
 
@@ -173,6 +173,13 @@ var oreQuantityUpgradeCost = 50000;
 // Upgrade ore quantity variable
 
 var oreQuantity = 1;
+
+// Unlock state
+
+var unlockIronState = false;
+var unlockSilverState = false;
+var unlockGoldState = false;
+var unlockMithrilState = false;
 
 // Mine Ore Functions 
 
@@ -324,11 +331,12 @@ function smithMithrilBar() {
     }
 };
 
-// Unlock Function
+// Unlock Functions
 
 function unlockIron() {
     if (ironOreHeader.style.display = "none" && gold >= upgrade.iron) {
         unlockNextMineralIron.disabled = true;
+        unlockIronState = true;
         gold -= upgrade.iron;
         totalGold.innerHTML = "Gold: " + gold;
         ironOreHeader.style.display = "block";
@@ -347,6 +355,7 @@ function unlockIron() {
 function unlockSilver() {
     if (silverOreHeader.style.display = "none" && gold >= upgrade.silver) {
         unlockNextMineralSilver.disabled = true;
+        unlockSilverState = true;
         gold -= upgrade.silver;
         totalGold.innerHTML = "Gold: " + gold;
         silverOreHeader.style.display = "block";
@@ -365,6 +374,7 @@ function unlockSilver() {
 function unlockGold() {
     if (silverOreHeader.style.display = "none" && gold >= upgrade.gold) {
         unlockNextMineralGold.disabled = true;
+        unlockGoldState = true;
         gold -= upgrade.gold;
         totalGold.innerHTML = "Gold: " + gold;
         goldOreHeader.style.display = "block";
@@ -383,6 +393,7 @@ function unlockGold() {
 function unlockMithril() {
     if (silverOreHeader.style.display = "none" && gold >= upgrade.mithril) {
         unlockNextMineralMithril.disabled = true;
+        unlockMithrilState = true;
         gold -= upgrade.mithril;
         totalGold.innerHTML = "Gold: " + gold;
         mithrilOreHeader.style.display = "block";
