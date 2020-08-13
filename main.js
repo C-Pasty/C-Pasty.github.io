@@ -107,7 +107,7 @@ var goldOreProgressCounter = 0;
 var goldBarProgressCounter = 0;
 var mithrilOreProgressCounter = 0;
 var mithrilBarProgressCounter = 0;
-
+// Hello
 // Gold Variable
 
 var totalGold = document.getElementById("total-gold");
