@@ -111,7 +111,7 @@ var mithrilBarProgressCounter = 0;
 // Gold Variable
 
 var totalGold = document.getElementById("total-gold");
-var gold = 500000000000;
+var gold = 0;
 
 // Ore variables
 
