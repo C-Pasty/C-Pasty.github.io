@@ -244,8 +244,7 @@ function smithCopperBar() {
         smithCopperBarBtn.style.backgroundColor = "grey";
         ores.copper -= 5;
         copperOreInventory.innerHTML = "Copper Ore: " + ores.copper
-        setTimeout(() => {bars.copper += 1, copperBarsInventory.innerHTML = "Copper Bars: " + bars.copper;}, speed.smithing);
-        setTimeout(() => {smithCopperBar();}, speed.smithing);
+        setTimeout(() => {smithCopperBar(), bars.copper += 1, copperBarsInventory.innerHTML = "Copper Bars: " + bars.copper;}, speed.smithing);
         sellCopperBar.innerHTML = "Sell all for " + bars.copper * price.copperBar;
     } else if (ores.copper < 5) {
         smithCopperBarBtn.disabled = false;
@@ -262,8 +261,7 @@ function smithIronBar() {
         smithIronBarBtn.style.backgroundColor = "grey"; 
         ores.iron -= 5;
         ironOreInventory.innerHTML = "Iron Ore: " + ores.iron;
-        setTimeout(() => {bars.iron += 1, ironBarsInventory.innerHTML = "Iron Bars: " + bars.iron;}, speed.smithing);
-        setTimeout(() => {smithIronBar();}, speed.smithing);
+        setTimeout(() => {smithIronBar(), bars.iron += 1, ironBarsInventory.innerHTML = "Iron Bars: " + bars.iron;}, speed.smithing);
         sellIronBar.innerHTML = "Sell all for " + bars.iron * price.ironBar;
     } else if (ores.iron < 5) {
         smithIronBarBtn.disabled = false;
@@ -280,8 +278,7 @@ function smithSilverBar() {
         smithSilverBarBtn.style.backgroundColor = "grey"; 
         ores.silver -= 5;
         silverOreInventory.innerHTML = "Silver Ore: " + ores.silver;
-        setTimeout(() => {bars.silver += 1, silverBarsInventory.innerHTML = "Silver Bars: " + bars.silver;}, speed.smithing);
-        setTimeout(() => {smithSilverBar();}, speed.smithing);
+        setTimeout(() => {smithSilverBar(), bars.silver += 1, silverBarsInventory.innerHTML = "Silver Bars: " + bars.silver;}, speed.smithing);
         sellSilverBar.innerHTML = "Sell all for " + bars.silver * price.silverBar;
     } else if (ores.silver < 5) {
         smithSilverBarBtn.disabled = false;
@@ -298,8 +295,7 @@ function smithGoldBar() {
         smithGoldBarBtn.style.backgroundColor = "grey";
         ores.gold -= 5;
         goldOreInventory.innerHTML = "Gold Ore: " + ores.gold;
-        setTimeout(() => {bars.gold += 1, goldBarsInventory.innerHTML = "Gold Bars: " + bars.gold;}, speed.smithing);
-        setTimeout(() => {smithGoldBar();}, speed.smithing);
+        setTimeout(() => {smithGoldBar(), bars.gold += 1, goldBarsInventory.innerHTML = "Gold Bars: " + bars.gold;}, speed.smithing);
         sellGoldBar.innerHTML = "Sell all for " + bars.gold * price.goldBar;
     } else if (ores.gold < 5) {
         smithGoldBarBtn.disabled = false;
@@ -316,8 +312,7 @@ function smithMithrilBar() {
         smithMithrilBarBtn.style.backgroundColor = "grey"; 
         ores.mithril -= 5;
         mithrilOreInventory.innerHTML = "Mithril Ore: " + ores.mithril;
-        setTimeout(() => {bars.mithril += 1, mithrilBarsInventory.innerHTML = "Mithril Bars: " + bars.mithril;}, speed.smithing);
-        setTimeout(() => {smithMithrilBar();}, speed.smithing);
+        setTimeout(() => {smithMithrilBar(), bars.mithril += 1, mithrilBarsInventory.innerHTML = "Mithril Bars: " + bars.mithril;}, speed.smithing);
         sellMithrilBar.innerHTML = "Sell all for " + bars.mithril * price.mithrilBar;
     } else if (ores.mithril < 5) {
         smithMithrilBarBtn.disabled = false;
