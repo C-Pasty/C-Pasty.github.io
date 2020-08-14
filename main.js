@@ -251,7 +251,6 @@ function smithCopperBar() {
         smithCopperBarBtn.disabled = false;
         smithCopperBarBtn.innerHTML = "Smith Bar";
         smithCopperBarBtn.style.backgroundColor = "black";
-        return;
     }
 };
 
@@ -270,7 +269,6 @@ function smithIronBar() {
         smithIronBarBtn.disabled = false;
         smithIronBarBtn.innerHTML = "Smith Bar";
         smithIronBarBtn.style.backgroundColor = "black";
-        return;
     }
 };
 
@@ -289,7 +287,6 @@ function smithSilverBar() {
         smithSilverBarBtn.disabled = false;
         smithSilverBarBtn.innerHTML = "Smith Bar";
         smithSilverBarBtn.style.backgroundColor = "black";
-        return;
     }
 };
 
@@ -308,7 +305,6 @@ function smithGoldBar() {
         smithGoldBarBtn.disabled = false;
         smithGoldBarBtn.innerHTML = "Smith Bar";
         smithGoldBarBtn.style.backgroundColor = "black";
-        return;
     }
 };
 
@@ -327,7 +323,6 @@ function smithMithrilBar() {
         smithMithrilBarBtn.disabled = false;
         smithMithrilBarBtn.innerHTML = "Smith Bar";
         smithMithrilBarBtn.style.backgroundColor = "black";
-        return;
     }
 };
 
