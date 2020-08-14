@@ -184,7 +184,7 @@ var unlockMithrilState = false;
 // Mine Ore Functions 
 
 function mineCopperOre() {
-    copperOreProgressBar();
+  copperOreProgressBar();
     mineCopperOreBtn.disabled = true;
     mineCopperOreBtn.innerHTML = "Mining";
     mineCopperOreBtn.style.backgroundColor = "grey";
@@ -244,8 +244,9 @@ function smithCopperBar() {
         smithCopperBarBtn.style.backgroundColor = "grey";
         ores.copper -= 5;
         copperOreInventory.innerHTML = "Copper Ore: " + ores.copper
+        copperBarProgressBar();
         setTimeout(() => {bars.copper += 1, copperBarsInventory.innerHTML = "Copper Bars: " + bars.copper;}, speed.smithing);
-        setTimeout(() => {copperBarProgressBar(), smithCopperBar();}, speed.smithing);
+        setTimeout(() => {smithCopperBar();}, speed.smithing);
         sellCopperBar.innerHTML = "Sell all for " + bars.copper * price.copperBar;
     } else if (ores.copper < 5) {
         smithCopperBarBtn.disabled = false;
@@ -263,8 +264,9 @@ function smithIronBar() {
         smithIronBarBtn.style.backgroundColor = "grey"; 
         ores.iron -= 5;
         ironOreInventory.innerHTML = "Iron Ore: " + ores.iron;
+        ironBarProgressBar();
         setTimeout(() => {bars.iron += 1, ironBarsInventory.innerHTML = "Iron Bars: " + bars.iron;}, speed.smithing);
-        setTimeout(() => {ironBarProgressBar(), smithIronBar();}, speed.smithing);
+        setTimeout(() => {smithIronBar();}, speed.smithing);
         sellIronBar.innerHTML = "Sell all for " + bars.iron * price.ironBar;
     } else if (ores.iron < 5) {
         smithIronBarBtn.disabled = false;
@@ -282,8 +284,9 @@ function smithSilverBar() {
         smithSilverBarBtn.style.backgroundColor = "grey"; 
         ores.silver -= 5;
         silverOreInventory.innerHTML = "Silver Ore: " + ores.silver;
+        silverBarProgressBar();
         setTimeout(() => {bars.silver += 1, silverBarsInventory.innerHTML = "Silver Bars: " + bars.silver;}, speed.smithing);
-        setTimeout(() => {silverBarProgressBar(), smithSilverBar();}, speed.smithing);
+        setTimeout(() => {smithSilverBar();}, speed.smithing);
         sellSilverBar.innerHTML = "Sell all for " + bars.silver * price.silverBar;
     } else if (ores.silver < 5) {
         smithSilverBarBtn.disabled = false;
@@ -301,8 +304,9 @@ function smithGoldBar() {
         smithGoldBarBtn.style.backgroundColor = "grey";
         ores.gold -= 5;
         goldOreInventory.innerHTML = "Gold Ore: " + ores.gold;
+        goldBarProgressBar();
         setTimeout(() => {bars.gold += 1, goldBarsInventory.innerHTML = "Gold Bars: " + bars.gold;}, speed.smithing);
-        setTimeout(() => {goldBarProgressBar(), smithGoldBar();}, speed.smithing);
+        setTimeout(() => {smithGoldBar();}, speed.smithing);
         sellGoldBar.innerHTML = "Sell all for " + bars.gold * price.goldBar;
     } else if (ores.gold < 5) {
         smithGoldBarBtn.disabled = false;
@@ -320,8 +324,9 @@ function smithMithrilBar() {
         smithMithrilBarBtn.style.backgroundColor = "grey"; 
         ores.mithril -= 5;
         mithrilOreInventory.innerHTML = "Mithril Ore: " + ores.mithril;
+        mithrilBarProgressBar()
         setTimeout(() => {bars.mithril += 1, mithrilBarsInventory.innerHTML = "Mithril Bars: " + bars.mithril;}, speed.smithing);
-        setTimeout(() => {mithrilBarProgressBar(), smithMithrilBar();}, speed.smithing);
+        setTimeout(() => {smithMithrilBar();}, speed.smithing);
         sellMithrilBar.innerHTML = "Sell all for " + bars.mithril * price.mithrilBar;
     } else if (ores.mithril < 5) {
         smithMithrilBarBtn.disabled = false;
@@ -520,8 +525,7 @@ function upgradeMiningSpeed() {
     miningSpeedUpgradeCost *= 1.2;
     miningSpeedUpgradeCost = Math.floor(miningSpeedUpgradeCost);
     miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-    speed.mining *= .95;
-    speed.mining = Math.floor(speed.mining);
+    speed.mining *= Math.floor(.95);
   }
 };
 
@@ -534,8 +538,7 @@ function upgradeSmithingSpeed() {
     smithingSpeedUpgradeCost *= 1.2;
     smithingSpeedUpgradeCost = Math.floor(smithingSpeedUpgradeCost);
     smithingSpeedUpgradeBtn.innerHTML = "Upgrade for " + smithingSpeedUpgradeCost + " Gold";
-    speed.smithing *= .95;
-    speed.smithing = Math.floor(speed.smithing);
+    speed.smithing *= Math.floor(.95);
     }
 };
 
