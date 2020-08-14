@@ -244,7 +244,6 @@ function smithCopperBar() {
         smithCopperBarBtn.style.backgroundColor = "grey";
         ores.copper -= 5;
         copperOreInventory.innerHTML = "Copper Ore: " + ores.copper
-        copperBarProgressBar();
         setTimeout(() => {bars.copper += 1, copperBarsInventory.innerHTML = "Copper Bars: " + bars.copper;}, speed.smithing);
         setTimeout(() => {smithCopperBar();}, speed.smithing);
         sellCopperBar.innerHTML = "Sell all for " + bars.copper * price.copperBar;
@@ -264,7 +263,6 @@ function smithIronBar() {
         smithIronBarBtn.style.backgroundColor = "grey"; 
         ores.iron -= 5;
         ironOreInventory.innerHTML = "Iron Ore: " + ores.iron;
-        ironBarProgressBar();
         setTimeout(() => {bars.iron += 1, ironBarsInventory.innerHTML = "Iron Bars: " + bars.iron;}, speed.smithing);
         setTimeout(() => {smithIronBar();}, speed.smithing);
         sellIronBar.innerHTML = "Sell all for " + bars.iron * price.ironBar;
@@ -284,7 +282,6 @@ function smithSilverBar() {
         smithSilverBarBtn.style.backgroundColor = "grey"; 
         ores.silver -= 5;
         silverOreInventory.innerHTML = "Silver Ore: " + ores.silver;
-        silverBarProgressBar();
         setTimeout(() => {bars.silver += 1, silverBarsInventory.innerHTML = "Silver Bars: " + bars.silver;}, speed.smithing);
         setTimeout(() => {smithSilverBar();}, speed.smithing);
         sellSilverBar.innerHTML = "Sell all for " + bars.silver * price.silverBar;
@@ -304,7 +301,6 @@ function smithGoldBar() {
         smithGoldBarBtn.style.backgroundColor = "grey";
         ores.gold -= 5;
         goldOreInventory.innerHTML = "Gold Ore: " + ores.gold;
-        goldBarProgressBar();
         setTimeout(() => {bars.gold += 1, goldBarsInventory.innerHTML = "Gold Bars: " + bars.gold;}, speed.smithing);
         setTimeout(() => {smithGoldBar();}, speed.smithing);
         sellGoldBar.innerHTML = "Sell all for " + bars.gold * price.goldBar;
@@ -324,7 +320,6 @@ function smithMithrilBar() {
         smithMithrilBarBtn.style.backgroundColor = "grey"; 
         ores.mithril -= 5;
         mithrilOreInventory.innerHTML = "Mithril Ore: " + ores.mithril;
-        mithrilBarProgressBar()
         setTimeout(() => {bars.mithril += 1, mithrilBarsInventory.innerHTML = "Mithril Bars: " + bars.mithril;}, speed.smithing);
         setTimeout(() => {smithMithrilBar();}, speed.smithing);
         sellMithrilBar.innerHTML = "Sell all for " + bars.mithril * price.mithrilBar;
