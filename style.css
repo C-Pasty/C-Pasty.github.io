@@ -227,12 +227,17 @@
 
 #toggle-btn {
     position: absolute;
-    margin: 5px;
     padding: 0px;
-    margin-top: 5px;
-    margin-left: 5px;
-    right: 0;
-    bottom: 0;
+    margin: 0;
+    left: 0;
+    top: 0;
+}
+
+.toggle-button {
+    border: 1px solid white;
+    color: white;
+    margin: 0;
+    font-size: 10px;
 }
 
 #copper-progress-wrapper {

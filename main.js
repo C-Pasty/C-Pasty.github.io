@@ -517,7 +517,8 @@ function upgradeMiningSpeed() {
     miningSpeedUpgradeCost *= 1.2;
     miningSpeedUpgradeCost = Math.floor(miningSpeedUpgradeCost);
     miningSpeedUpgradeBtn.innerHTML = "Upgrade for " + miningSpeedUpgradeCost + " Gold";
-    speed.mining *= Math.floor(.95);
+    speed.mining *= .95;
+    speed.mining = Math.floor(speed.mining);
   }
 };
 
@@ -530,8 +531,9 @@ function upgradeSmithingSpeed() {
     smithingSpeedUpgradeCost *= 1.2;
     smithingSpeedUpgradeCost = Math.floor(smithingSpeedUpgradeCost);
     smithingSpeedUpgradeBtn.innerHTML = "Upgrade for " + smithingSpeedUpgradeCost + " Gold";
-    speed.smithing *= Math.floor(.95);
-    }
+    speed.smithing *= .95;
+    speed.smithing = Math.floor(speed.smithing); 
+  }
 };
 
 // Upgrade amount of ore gained
