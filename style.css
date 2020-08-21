@@ -1,7 +1,7 @@
 * {
     margin: 5px;
     padding: 5px;
-    font-family: sans-serif;
+    font-family: 'Orbitron', sans-serif;
     background-color: black;
 }
 
@@ -212,6 +212,7 @@
     margin: 3px;
     padding: 3px;
     margin: 0 auto;
+    border: 1px solid white;
 }
 
 #total-gold {
@@ -225,11 +226,13 @@
 }
 
 #toggle-btn {
-    position: relative;
-    margin: 0px;
+    position: absolute;
+    margin: 5px;
     padding: 0px;
     margin-top: 5px;
     margin-left: 5px;
+    right: 0;
+    bottom: 0;
 }
 
 #copper-progress-wrapper {

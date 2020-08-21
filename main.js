@@ -41,6 +41,7 @@ var sellMithrilBar = document.getElementById("mithril-bar-sell");
 
 // Mining box variables to hide and show based on progress in game
 
+var copperOreHeader = document.getElementById("copper-ore-header");
 var copperBarHeader = document.getElementById("copper-bar-header");
 var ironOreHeader = document.getElementById("iron-ore-header");
 var ironBarHeader = document.getElementById("iron-bar-header");
@@ -108,10 +109,16 @@ var goldBarProgressCounter = 0;
 var mithrilOreProgressCounter = 0;
 var mithrilBarProgressCounter = 0;
 
+// Localstorage Buttons
+
+var saveGameBtn = document.getElementById("save-game");
+var loadGameBtn = document.getElementById("load-game");
+var clearGameBtn = document.getElementById("clear-game");
+
 // Gold Variable
 
 var totalGold = document.getElementById("total-gold");
-var gold = 0;
+var gold = 50000000;
 
 // Ore variables
 
@@ -811,6 +818,8 @@ function init() {
     unlockNextGoldHeader.style.display = "none";
     unlockNextMithrilHeader.style.display = "none";
     unlockNextMineralMithril.style.display = "none";
+    clearGameBtn.disabled = true;
+    clearGameBtn.style.backgroundColor = "grey";
 };
 
 // Runs Initilize function on launch

@@ -155,10 +155,6 @@ function clearGame() {
     localStorage.clear();
 };
 
-var saveGameBtn = document.getElementById("save-game");
-var loadGameBtn = document.getElementById("load-game");
-var clearGameBtn = document.getElementById("clear-game");
-
 saveGameBtn.onclick = saveGame;
 loadGameBtn.onclick = loadGame;
 clearGameBtn.onclick = clearGame;
